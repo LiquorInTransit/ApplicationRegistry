@@ -13,3 +13,10 @@ eureka:
   server:
     enableSelfPreservation: false
     waitTimeInMsWhenSyncEmpty: 0
+    
+---
+   
+spring:
+  profiles: dev
+server:
+  port: 8761

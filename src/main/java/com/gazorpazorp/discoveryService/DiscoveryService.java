@@ -7,6 +7,7 @@ import org.springframework.cloud.commons.util.InetUtils;
 import org.springframework.cloud.netflix.eureka.EurekaInstanceConfigBean;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import com.netflix.appinfo.AmazonInfo;
 
@@ -26,6 +27,7 @@ public class DiscoveryService {
 		// Problem - this data changes after the EIP has been allocated, it seems 
 		// this stops correct functioning. 
 		@Bean
+		@Profile("!dev")
 		public EurekaInstanceConfigBean eurekaInstanceConfigBean(InetUtils utils) {
 
 	// The following is needed if running on Spring Cloud prior to the "Dalston" release train.

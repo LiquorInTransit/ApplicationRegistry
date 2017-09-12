@@ -2,6 +2,7 @@ server:
   port: 8761
   
 eureka:
+  datacenter: cloud
   client:
     region: us-east-2
     serviceUrl:
@@ -9,7 +10,7 @@ eureka:
   server:
     enableSelfPreservation: false
     renewalPercentThreshold: 0.1
-  datacenter: cloud
+  
     
 ---
    

@@ -2,6 +2,24 @@ server:
   port: 8761
   
 eureka:
+  client:
+    region: us-east-2
+    serviceUrl:
+      defaultZone: http://ec2-xxx-xxx-xxx-xxx.region.compute.amazonaws.com:${server.port}/eureka
+  server:
+    enableSelfPreservation: false
+    renewalPercentThreshold: 0.1
+    
+---
+   
+spring:
+  profiles: dev
+server:
+  port: 8761
+  
+eureka:
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
   instance:
     hostname: localhost
     port: ${server.port}
@@ -10,13 +28,4 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-  server:
-    enableSelfPreservation: false
-    waitTimeInMsWhenSyncEmpty: 0
     
----
-   
-spring:
-  profiles: dev
-server:
-  port: 8761

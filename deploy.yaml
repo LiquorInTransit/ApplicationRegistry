@@ -100,5 +100,5 @@
   - name: Wait for the new webserver to begin responding
     wait_for:
             host: localhost
-            port: 8080
+            port: 8761
             state: started

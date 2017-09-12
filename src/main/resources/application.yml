@@ -9,6 +9,7 @@ eureka:
   server:
     enableSelfPreservation: false
     renewalPercentThreshold: 0.1
+  datacenter: cloud
     
 ---
    

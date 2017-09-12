@@ -5,7 +5,7 @@ eureka:
   client:
     region: us-east-2
     serviceUrl:
-      defaultZone: http://ec2-13-58-181-207.us-east-2.compute.amazonaws.com:${server.port}/eureka
+      defaultZone: http://ec2-13-58-181-207.us-east-2.compute.amazonaws.com:${server.port}/eureka/
   server:
     enableSelfPreservation: false
     renewalPercentThreshold: 0.1

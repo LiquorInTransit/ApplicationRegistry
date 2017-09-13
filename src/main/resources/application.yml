@@ -1,6 +1,9 @@
 server:
   port: 8761
   
+logging:
+  file: log.log
+  
 security:
   basic:
     enabled: true

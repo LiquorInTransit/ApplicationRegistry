@@ -3,6 +3,15 @@ server:
   
 logging:
   file: log.log
+  level:
+    com:
+      netflix:
+        discovery:
+          internal:
+            util:
+              Archaius1Utils: ERROR
+          endpoint:
+            EndpointUtils: ERROR
   
 security:
   basic:

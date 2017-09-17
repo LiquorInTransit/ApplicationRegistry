@@ -14,12 +14,12 @@ node {
          ansiblePlaybook credentialsId: 'ssh-credentials', installation: 'ansible-installation', playbook: 'deploy.yaml', sudoUser: null
       }      
    }
-#  stage('TriggerOtherBuilds') {
-#  		if (env.BRANCH_NAME == 'master') {
-#		    build job: '../AuthenticationService/master', wait: false
-#		    build job: '../AccountService/master', wait: false
-#		    build job: '../OrderService/master', wait: false
-#		    build job: '../GatewayService/master', wait: false
-#		}
-#  }
+//  stage('TriggerOtherBuilds') {
+//  		if (env.BRANCH_NAME == 'master') {
+//		    build job: '../AuthenticationService/master', wait: false
+//		    build job: '../AccountService/master', wait: false
+//		    build job: '../OrderService/master', wait: false
+//		    build job: '../GatewayService/master', wait: false
+//		}
+//  }
 }

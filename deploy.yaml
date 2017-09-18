@@ -10,6 +10,9 @@
      image_name: ami-8a7859ef
 
   tasks:
+    - name: Setup Global Vars
+      set_fact:
+        region: "{{ region }}"
     - name: Setup security group
       ec2_group:
         name: "{{ security_group_name }}"

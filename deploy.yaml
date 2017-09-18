@@ -45,8 +45,10 @@
         exact_count: 1 
         count_tag:
           Name: Eureka_Server
+          Deploy: New
         instance_tags:
           Name: Eureka_Server
+          Deploy: Blue
         instance_profile_name: eureka-eip-reallocation
       register: ec2
 

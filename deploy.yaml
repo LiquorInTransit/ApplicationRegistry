@@ -116,7 +116,7 @@
     ec2_remote_facts:
        filters:
           "tag:Deploy": Blue
-          "tag:Name": ConfigServer
+          "tag:Name": Eureka_Server
           instance-state-name: running
        region: "{{ region }}"
     register: new_server
@@ -125,7 +125,7 @@
     ec2_remote_facts:
        filters:
           "tag:Deploy": Green
-          "tag:Name": ConfigServer
+          "tag:Name": Eureka_Server
           instance-state-name: running
        region: "{{ region }}"
     register: old_green
@@ -135,7 +135,7 @@
       exact_count: 0
       count_tag:
         Deploy: Green
-        Name: ConfigServer
+        Name: Eureka_Server
       region: "{{ region }}"
       image: notneeded
 

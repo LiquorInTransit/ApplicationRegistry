@@ -121,14 +121,14 @@
        region: "{{ region }}"
     register: new_server
 
-  - name: Get the id of the old, soon to be dead, green server
-    ec2_remote_facts:
-       filters:
-          "tag:Deploy": Green
-          "tag:Name": Eureka_Server
-          instance-state-name: running
-       region: "{{ region }}"
-    register: old_green
+#  - name: Get the id of the old, soon to be dead, green server
+#    ec2_remote_facts:
+#       filters:
+#          "tag:Deploy": Green
+#          "tag:Name": Eureka_Server
+#          instance-state-name: running
+#       region: "{{ region }}"
+#    register: old_green
 
   - name: Terminate the existing Green Server.
     ec2:

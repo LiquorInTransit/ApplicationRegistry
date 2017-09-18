@@ -102,3 +102,50 @@
             host: localhost
             port: 8761
             state: started
+
+# Series of steps to implement a Green -> Blue switchover
+
+- hosts: localhost
+  tasks:
+  - name: Gather facts about the new blue server
+    ec2_remote_facts:
+       filters:
+          "tag:Deploy": Blue
+          "tag:Name": ConfigServer
+          instance-state-name: running
+       region: "{{ region }}"
+    register: new_server
+
+  - name: Get the id of the old, soon to be dead, green server
+    ec2_remote_facts:
+       filters:
+          "tag:Deploy": Green
+          "tag:Name": ConfigServer
+          instance-state-name: running
+       region: "{{ region }}"
+    register: old_green
+
+  - name: Terminate the existing Green Server.
+    ec2:
+      exact_count: 0
+      count_tag:
+        Deploy: Green
+        Name: ConfigServer
+      region: "{{ region }}"
+      image: notneeded
+
+  - name: All done, set new server to Green status
+    ec2_tag:
+       region: "{{ region }}"
+       resource: "{{ new_server.instances[0].id }}"
+       tags:
+          Deploy: Green
+       state: present
+
+  - name: Remove Blue Tag
+    ec2_tag:
+       region: "{{ region }}"
+       resource: "{{ new_server.instances[0].id }}"
+       tags:
+          Deploy: Blue
+       state: absent

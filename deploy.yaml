@@ -6,7 +6,7 @@
      region: us-east-2
      keypair_name: lit-backend-keypair
      security_group_name: eureka-server-security-group
-     instance_type: t2.nano
+     instance_type: t2.micro
      image_name: ami-8a7859ef
 
   tasks:
